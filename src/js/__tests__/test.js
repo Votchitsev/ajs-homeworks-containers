@@ -1,16 +1,20 @@
 import Character from '../task/character';
 import Team from '../task/team';
 
+const team = new Team();
+const characterOne = new Character('Marusia');
+const characterTwo = new Character('Ivan');
+const characterThree = new Character('Vasily');
+
 test('adding character to team', () => {
-  const character = new Character('Marusia');
-  const team = new Team();
-  team.add(character);
-  expect(team.members).toContain(character);
+  team.add(characterOne);
+  expect(team.members).toContain(characterOne);
+  expect(() => {
+    team.add(characterOne);
+  }).toThrow();
 });
 
-test('repeated adding a character to team', () => {
-  const character = new Character('Marusia');
-  const team = new Team();
-  team.add(character);
-  expect(team.add(character)).toThrow();
+test('adding character to team by addAll', () => {
+  team.addAll(characterTwo, characterThree);
+  expect(team.members).toContain(characterTwo, characterThree);
 });

@@ -3,12 +3,16 @@ export default class Team {
     this.members = new Set();
   }
 
-  add(...characters) {
+  add(character) {
+    if (this.members.has(character)) {
+      throw new Error('The team has this character');
+    }
+    this.members.add(character);
+  }
+
+  addAll(...characters) {
     characters.forEach((character) => {
-      if (this.members.has(character)) {
-        throw new Error('The team has this character');
-      }
-      this.members.add(character);
+      this.add(character);
     });
   }
 }
