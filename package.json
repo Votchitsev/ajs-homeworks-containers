@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "webpack",
-    "lint": "lint"
+    "lint": "eslint"
   },
   "repository": {
     "type": "git",
