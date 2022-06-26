@@ -1,0 +1,22 @@
+image: Ubuntu
+
+stack: node 16
+
+branches: 
+  only: 
+    - master
+
+cache: 
+  - node_modules
+  - coverage
+
+install: 
+  - npm install
+
+build: off
+
+build_script: 
+  - npm run build
+
+test_script: 
+  - npm run lint && npm test
